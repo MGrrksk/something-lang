@@ -16,10 +16,10 @@ enum TokenType {
     TT_SLASH,
     TT_DBLSLASH,
     TT_PERCENT,
-    TT_BANG,
-    TT_BNGEQUAL,
     TT_EQUAL,
     TT_DBLEQUAL,
+    TT_BANG,
+    TT_BNGEQUAL,
     TT_GREATER,
     TT_GTEQUAL,
     TT_LESS,
@@ -43,7 +43,7 @@ enum TokenType {
     TT_RETURN,
     TT_SEP,
     TT_ERROR,
-    TT_EOF,
+    TT_EOF
 };
 
 struct Token {

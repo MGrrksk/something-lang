@@ -1,5 +1,7 @@
 #pragma once
 
+// Fast stack implementation with a fixed size.
+// Warning: No bounds checking is done.
 template<typename T, unsigned int size>
 class Stack {
     T data[size];
@@ -19,5 +21,8 @@ class Stack {
         }
         const T& operator[](int index) const {
             return data[index];
+        }
+        void clear() {
+            top = data;
         }
 };

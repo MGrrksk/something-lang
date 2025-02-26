@@ -1,0 +1,51 @@
+# Test of separator mechanics
+# SEP - name of the token for ending/separating statements
+
+(       # no SEP after left parenthese
+    5   # no SEP in parentheses
+)       # SEP after right parenthese
+[       # no SEP after left bracket
+    5   # no SEP in brackets
+]       # SEP after right bracket
+{       # no SEP after left brace
+}       # no SEP after right brace
+,       # no SEP after comma
+.       # no SEP after dot
++       # no SEP after plus
+-       # no SEP after minus
+*       # no SEP after star
+**      # no SEP after double star
+/       # no SEP after slash
+//      # no SEP after double slash
+%       # no SEP after precent
+=       # no SEP after equal
+==      # no SEP after double equal
+!       # no SEP after bang
+!=      # no SEP after bang equal
+>       # no SEP after greater
+>=      # no SEP after greater equal
+<       # no SEP after less
+<=      # no SEP after less equal
+var     # SEP after identificator
+19.03   # SEP after number
+"abc"   # SEP after string
+and     # no SEP after `and` keyword
+or      # no SEP after `or` keyword
+xor     # no SEP after `xor` keyword
+true    # SEP after `true` keyword
+false   # SEP after `false` keyword
+nothing # SEP after `nothing` keyword
+do      # no SEP after `do` keyword
+if      # no SEP after `if` keyword
+else    # no SEP after `else` keyword
+while   # no SEP after `while` keyword
+for     # no SEP after `for` keyword
+def     # no SEP after `def` keyword
+fn      # no SEP after `fn` keyword
+return  # no SEP after `return` keyword
+
+42; 607     # semicolon works as separator
+42;         # "newline" SEP after "semicolon" SEP (semicolon and newline cannot be used together)
+33333 \
++ 77777     # backslash skips following newline
+462         # SEP at EOF

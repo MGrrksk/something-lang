@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdio>
 #include <lexer.hpp>
+#include <debug.hpp>
 
 const char* const HELP_MSG = "Usage of the `smth` tool:\n"
     "\t\e[1;37msmth --help | \e[0m\e[4;37mfile\e[0m";
@@ -20,7 +21,7 @@ bool run(const char* path) {
     Token token;
     do {
         token = lexer.next();
-        printf("Token type: %d, lexeme: %.*s, length: %d, line: %d, column: %d\n", token.type, token.lexeme == nullptr ? 6 : token.length, token.lexeme, token.length, token.line, token.collumn);
+        logToken(token);
     } while (token.type != TT_EOF);
     return true;
 }
