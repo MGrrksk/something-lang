@@ -1,5 +1,7 @@
 #include <debug.hpp>
 
+FILE* logFile = stdout;
+
 void logToken(const Token& token) {
     switch (token.type) {
         case TT_LPAREN: printf("LPAREN"); break;

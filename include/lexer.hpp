@@ -11,7 +11,7 @@ class Lexer {
     bool canEndStmt;
     // Stack of enclosing parentheses. Bool value detrmines whether statement can end in it.
     // (e.g. in square brackets `[]` newline does not end statement (`false`), but in braces `{}` it does (`true`).)
-    Stack<bool, 64> parenStack;
+    DynamicStack<bool> parenStack;
     unsigned short skipWhitespace();
     bool isKeyword(const char* keyword);
     char eat();

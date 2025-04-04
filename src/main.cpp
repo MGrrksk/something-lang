@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdio>
 #include <lexer.hpp>
+#include <compiler.hpp>
 #include <debug.hpp>
 
 const char* const HELP_MSG = "Usage of the `smth` tool:\n"
@@ -18,12 +19,12 @@ bool run(const char* path) {
     file.close();
     Lexer lexer;
     lexer.reset(str.c_str());
-    Token token;
-    do {
-        token = lexer.next();
-        logToken(token);
-    } while (token.type != TT_EOF);
-    return true;
+    Compiler compiler;
+    compiler.reset(lexer);
+    Chunk chunk = compiler.compile();
+    for (unsigned char op : chunk.code) printf("%d ", op);
+    printf("\n");
+    return !compiler.hadError;
 }
 
 int main(int argc, const char* argv[]) {
@@ -33,5 +34,5 @@ int main(int argc, const char* argv[]) {
     }
     if (std::string("--help") == argv[1]) printf("%s\n", HELP_MSG);
     else return run(argv[1]) ? 0 : 1;
-    return 0; // Just to avoid warnings
+    return 0;
 }
